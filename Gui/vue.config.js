@@ -4,6 +4,8 @@ const { defineConfig } = require('@vue/cli-service');
 
 const settingsJson = require(path.join(__dirname, '../.vscode/settings.json'));
 
+guiLibraryPath = path.join(__dirname, '..', 'guiLibrary', path.sep);
+
 module.exports = defineConfig({
   chainWebpack: (config) => {
     config.resolve.alias.set('vue', path.resolve('./node_modules/vue'));
@@ -13,7 +15,6 @@ module.exports = defineConfig({
     resolve: {
       //symlinks: false,
       alias: {
-        vue: path.resolve(`./node_modules/vue`),
         //resolving the assets generated in dist
         '/fonts': path.resolve(guiLibraryPath, 'dist/fonts'),
         '/img': path.resolve(guiLibraryPath, 'dist/img'),
